@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.penjing.entity">
+	 <class name="PenJing" table="t_penJing">
+        <id name="penJingId" column="penJingId">
+            <generator class="native"/>
+        </id>
+        
+        <property name="penJingName" length = "20"></property>
+        <property name="penJingTitle" length = "20"></property>
+        <many-to-one name="publisher" fetch="join" class="com.penjing.entity.User" column="publisher"></many-to-one>
+        <many-to-one name="assessor" fetch="join" class="com.penjing.entity.User" column="assessor"></many-to-one>
+        <many-to-one name="type" fetch="join" class="com.penjing.entity.PenJingType" column="type"></many-to-one>
+        <property name="penJingDescription" length = "200"></property>
+        <property name="publishTime"><column name="publishTime" sql-type="datetime"></column></property>
+        <property name="mainPicture" length = "50"></property>
+        <property name="penJingStatus"></property>
+        <property name="remark" length = "200"></property>
+        
+        <set name="penJingPictures" cascade="all" inverse="true">
+        <key column="penJing"></key>
+        	<one-to-many class = "com.penjing.entity.PenJingPicture"/>
+        </set>
+        <set name="penJingList" cascade="all" inverse="true">
+        <key column="penJingId"></key>
+        	<one-to-many class = "com.penjing.entity.PenJingList"/>
+        </set>
+    </class>
+</hibernate-mapping>

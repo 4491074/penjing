@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.penjing.entity">
+	 <class name="Forum" table="t_forum">
+        <id name="forumId" column="forumId">
+            <generator class="native"/>
+        </id>
+        
+        <property name="forumName" length = "20"></property>
+        <property name="notice" length = "80"></property>
+        <property name="pageNu"></property>
+        <property name="forumStatus"></property>
+    </class>
+</hibernate-mapping>

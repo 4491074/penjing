@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.penjing.entity">
+	 <class name="PenJingList" table="t_penJingList">
+        <id name="penJingListId" column="penJingListId">
+            <generator class="native"/>
+        </id>
+        
+        <many-to-one name="order" fetch="join" class="com.penjing.entity.Order" column="orderId"></many-to-one>
+        <many-to-one name="penJing" fetch="join" class="com.penjing.entity.PenJing" column="penJingId"></many-to-one>
+        <property name="count"></property>
+        <property name="listNote" length = "200"></property>
+    </class>
+</hibernate-mapping>

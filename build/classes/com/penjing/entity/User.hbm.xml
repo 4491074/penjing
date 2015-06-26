@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.penjing.entity">
+	 <class name="User" table="t_user" dynamic-insert="true" dynamic-update="true">
+        <id name="userId" column="userId">
+            <generator class="native"/>
+        </id>
+        
+        <property name="userName" length = "20"></property>
+        <property name="password" length = "80"></property>
+        <property name="mail" length = "20"></property>
+        <property name="phone" length = "20"></property>
+        <property name="photo" length = "50"></property>
+        <property name="enrollTime"><column name="enrollTime" sql-type="datetime"></column></property>
+        <property name="lastTime"><column name="lastTime" sql-type="datetime"></column></property>
+        <property name="userDescription" length = "200"></property>
+        <many-to-one name="role" fetch="join" class="com.penjing.entity.Role">
+        	<column name="roleId" default="1"></column>
+        </many-to-one>
+        <property name="userStatus"></property>
+        <set name="myPenJing">
+        <key column="publisher"></key>
+        	<one-to-many class = "com.penjing.entity.PenJing"/>
+        </set>
+        <set name="myAssessPenJing">
+        <key column="assessor"></key>
+        	<one-to-many class = "com.penjing.entity.PenJing"/>
+        </set>
+        <set name="myNews">
+        <key column="newsPublisher"></key>
+        	<one-to-many class = "com.penjing.entity.News"/>
+        </set>
+        <set name="myAssessNews">
+        <key column="newsAssessor"></key>
+        	<one-to-many class = "com.penjing.entity.News"/>
+        </set>
+        <set name="myTopics">
+        <key column="userId"></key>
+        	<one-to-many class = "com.penjing.entity.Topic"/>
+        </set>
+        <set name="myReply">
+        <key column="userId"></key>
+        	<one-to-many class = "com.penjing.entity.Reply"/>
+        </set>
+    </class>
+</hibernate-mapping>

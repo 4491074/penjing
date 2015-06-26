@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.penjing.entity">
+	 <class name="Role" table="t_role">
+        <id name="roleId" column="roleId">
+            <generator class="native"/>
+        </id>
+        
+        <property name="roleName" length = "20"></property>
+        <property name="roleDescription" length = "200"></property>
+        <property name="publishPenJing"></property>
+        <property name="auditPenJing"></property>
+        <property name="managePenJing"></property>
+        <property name="manageOrder"></property>
+        <property name="publishNews"></property>
+        <property name="auditNews"></property>
+        <property name="manageNews"></property>
+        <property name="creatTopic"></property>
+        <property name="manageForum"></property>
+        <property name="manageRole"></property>
+        <property name="manageUser"></property>
+        <property name="manageInfo"></property>
+        <property name="roleStatus"></property>
+        <set name="users">
+        <key column="roleId"></key>
+        	<one-to-many class = "com.penjing.entity.User"/>
+        </set>
+    </class>
+</hibernate-mapping>

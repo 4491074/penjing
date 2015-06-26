@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">  
+      
+<struts>
+	<constant name="struts.multipart.saveDir" value="/tmp" />
+    <constant name="struts.action.extension" value="," />
+    
+	<package name="crud-default" extends="json-default">
+		<interceptors>
+			<!-- 角色管理权限拦截器 -->
+			<interceptor name="roleManageInterceptor"
+				class="com.penjing.interceptor.RoleManageInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="roleInterceptor">
+				<interceptor-ref name="roleManageInterceptor"/>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+			<!-- 用户管理权限拦截器 -->
+			<interceptor name="userManageInterceptor"
+				class="com.penjing.interceptor.UserManageInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="userInterceptor">
+				<interceptor-ref name="userManageInterceptor"/>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+			<!-- 新闻管理权限拦截器 -->
+			<interceptor name="newsManageInterceptor"
+				class="com.penjing.interceptor.NewsManageInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="newsInterceptor">
+				<interceptor-ref name="newsManageInterceptor"/>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+			<!-- 发表新闻权限拦截器 -->
+			<interceptor name="publishNewsInterceptor"
+				class="com.penjing.interceptor.PublishNewsInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="publishNInterceptor">
+				<interceptor-ref name="publishNewsInterceptor"/>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+			<!-- 审核新闻权限拦截器 -->
+			<interceptor name="auditNewsInterceptor"
+				class="com.penjing.interceptor.AuditNewsInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="auditNInterceptor">
+				<interceptor-ref name="auditNewsInterceptor"/>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+			<!-- 论坛管理权限拦截器 -->
+			<interceptor name="forumManageInterceptor"
+				class="com.penjing.interceptor.ForumManageInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="forumInterceptor">
+				<interceptor-ref name="forumManageInterceptor"/>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+			<!-- 发布盆景权限拦截器 -->
+			<interceptor name="publishPenJingInterceptor"
+				class="com.penjing.interceptor.PublishPenJingInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="publishPJInterceptor">
+				<interceptor-ref name="publishPenJingInterceptor"/>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+			<!-- 审核盆景权限拦截器 -->
+			<interceptor name="auditPenJingInterceptor"
+				class="com.penjing.interceptor.AuditPenJingInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="auditPJInterceptor">
+				<interceptor-ref name="auditPenJingInterceptor"/>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+			<!-- 管理盆景权限拦截器 -->
+			<interceptor name="penJingManageInterceptor"
+				class="com.penjing.interceptor.PenJingManageInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="penJingInterceptor">
+				<interceptor-ref name="penJingManageInterceptor"/>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+			<!-- 订单管理权限拦截器 -->
+			<interceptor name="orderManageInterceptor"
+				class="com.penjing.interceptor.OrderManageInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="orderInterceptor">
+				<interceptor-ref name="orderManageInterceptor"/>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+			<!-- 发帖权限拦截器 -->
+			<interceptor name="creatTopicInterceptor"
+				class="com.penjing.interceptor.CreatTopicInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="creatTopicInterceptor">
+				<interceptor-ref name="creatTopicInterceptor"/>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+			<!-- 页面信息权限拦截器 -->
+			<interceptor name="infoManageInterceptor"
+				class="com.penjing.interceptor.InfoManageInterceptor">
+			</interceptor>
+			
+			<interceptor-stack name="infoInterceptor">
+				<interceptor-ref name="infoManageInterceptor"/>
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			
+		</interceptors>
+	</package>
+</struts>

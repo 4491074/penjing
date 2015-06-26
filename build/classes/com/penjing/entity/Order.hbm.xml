@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.penjing.entity">
+	 <class name="Order" table="t_order">
+        <id name="orderId" column="orderId">
+            <generator class="native"/>
+        </id>
+        
+        <property name="customerName" length = "20"></property>
+        <property name="customerPhone" length = "20"></property>
+        <property name="customerAdd" length = "200"></property>
+        <property name="time"><column name="time" sql-type="datetime"></column></property>
+        <property name="distributionTime"><column name="distributionTime" sql-type="datetime"></column></property>
+        <property name="note" length = "200"></property>
+        <property name="orderState"></property>
+        <set name="lists" cascade="all" inverse="true">
+        <key column="orderId"></key>
+        	<one-to-many class = "com.penjing.entity.PenJingList"/>
+        </set>
+    </class>
+</hibernate-mapping>

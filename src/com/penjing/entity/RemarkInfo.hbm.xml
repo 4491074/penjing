@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-5-10 19:40:19 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping package="com.penjing.entity">
+    <class name="RemarkInfo" table="T_REMARKINFO">
+        <id name="id" type="integer" column="id">
+            <generator class="native"/>
+        </id>
+  
+        <property name="visitNum" type="long">
+            <column name="VISITNUM" />
+        </property>
+        <property name="managerName" type="java.lang.String">
+            <column name="MANAGERNAME" />
+        </property>
+        <property name="managerTel" type="java.lang.String">
+            <column name="MANAGERTEL"/>
+        </property>
+        <property name="address" type="java.lang.String">
+            <column name="ADDRESS" />
+        </property>
+    </class>
+</hibernate-mapping>

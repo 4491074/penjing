@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.penjing.entity">
+	 <class name="News" table="t_news">
+        <id name="newsId" column="newsId">
+            <generator class="native"/>
+        </id>
+        
+        <property name="newsTitle" length = "50"></property>
+        <property name="newsContent" type="text" length = "5000"></property>
+        <property name="readNu"></property>
+        <property name="publishTime"><column name="publishTime" sql-type="datetime"></column></property>
+        <many-to-one name="newsPublisher" fetch="join" class="com.penjing.entity.User" column="newsPublisher"></many-to-one>
+        <many-to-one name="newsAssessor" fetch="join" class="com.penjing.entity.User" column="newsAssessor"></many-to-one>
+        <many-to-one name="newsBoard" fetch="join" class="com.penjing.entity.NewsBoard" column="newsBoard"></many-to-one>
+        <property name="newsStatus"></property>
+        <property name="remark" length = "200"></property>
+    </class>
+</hibernate-mapping>

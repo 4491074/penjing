@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-configuration PUBLIC  
+         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">  
+  
+<hibernate-configuration>  
+    <session-factory>  
+		
+		<!--方言-->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>  
+
+        <!-- 显示sql语句 -->  
+        <property name="show_sql">false</property>  
+        
+		<!-- 自动更新 -->
+        <property name="hbm2ddl.auto">update</property>
+        
+        
+  
+   		<mapping resource="com/penjing/entity/User.hbm.xml" />
+   		<mapping resource="com/penjing/entity/News.hbm.xml" />
+   		<mapping resource="com/penjing/entity/NewsBoard.hbm.xml" />
+   		<mapping resource="com/penjing/entity/PenJing.hbm.xml" />
+   		<mapping resource="com/penjing/entity/PenJingPicture.hbm.xml" />
+   		<mapping resource="com/penjing/entity/PenJingType.hbm.xml" />
+   		<mapping resource="com/penjing/entity/Role.hbm.xml" />
+   		<mapping resource="com/penjing/entity/Forum.hbm.xml" />
+   		<mapping resource="com/penjing/entity/Reply.hbm.xml" />
+   		<mapping resource="com/penjing/entity/Topic.hbm.xml" />
+   		<mapping resource="com/penjing/entity/Order.hbm.xml" />
+   		<mapping resource="com/penjing/entity/PenJingList.hbm.xml" />
+  		<mapping resource="com/penjing/entity/RemarkInfo.hbm.xml" />
+    </session-factory>  
+</hibernate-configuration>

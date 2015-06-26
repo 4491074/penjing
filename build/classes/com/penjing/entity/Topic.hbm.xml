@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.penjing.entity">
+	 <class name="Topic" table="t_topic">
+        <id name="topicId" column="topicId">
+            <generator class="native"/>
+        </id>
+        
+        <property name="time"><column name="time" sql-type="datetime"></column></property>
+        <property name="lastTime"><column name="lastTime" sql-type="datetime"></column></property>
+        <property name="title" length = "50"></property>
+        <property name="content" type="text" length = "5000"></property>
+        <property name="isTop"></property>
+        <property name="topTime"><column name="topTime" sql-type="datetime"></column></property>
+  		<many-to-one name="user" class="com.penjing.entity.User" not-null="true" column="userId"></many-to-one>
+        <property name="readNu"></property>
+        <property name="topicState"></property>
+        <set name="replys">
+        	<key column="topicId"></key>
+        	<one-to-many class = "com.penjing.entity.Reply"/>
+        </set>
+    </class>
+</hibernate-mapping>
